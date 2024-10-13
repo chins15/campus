@@ -81,42 +81,43 @@
     <div class="footer">© 2024 MGNU Campus. All Rights Reserved.<br></div>
     <div class="footer_text"><p><span>&nbsp;</span></p></div>
 
-    <script type="module">
+   <script type="module">
     // Import Firebase modules
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
     import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
-        // Your Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyDx6aMhun-5RS0F-rdUpMox-8GLXHIGXys",
-            authDomain: "mgnucampus.firebaseapp.com",
-            projectId: "mgnucampus",
-            storageBucket: "mgnucampus.appspot.com",
-            messagingSenderId: "923094053035",
-            appId: "1:923094053035:web:58fbcee7fcd9ecb7cdc7ee",
-            measurementId: "G-GKMS3NK98V"
-        };
+    // Your Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDx6aMhun-5RS0F-rdUpMox-8GLXHIGXys",
+        authDomain: "mgnucampus.firebaseapp.com",
+        projectId: "mgnucampus",
+        storageBucket: "mgnucampus.appspot.com",
+        messagingSenderId: "923094053035",
+        appId: "1:923094053035:web:58fbcee7fcd9ecb7cdc7ee",
+        measurementId: "G-GKMS3NK98V"
+    };
 
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const auth = getAuth(app);
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig); // Corrected here
+    const auth = getAuth(app);
 
-        // Check if the user is authenticated
-        auth.onAuthStateChanged((user) => {
-            if (!user) {
-                // User is not signed in, redirect to login page
-                window.location.href = "login.html";
-            }
+    // Check if the user is authenticated
+    onAuthStateChanged(auth, (user) => { // Corrected here
+        if (!user) {
+            // User is not signed in, redirect to login page
+            window.location.href = "login.html";
+        }
+    });
+
+    // Logout functionality
+    document.getElementById('logout-button').addEventListener('click', function() {
+        signOut(auth).then(() => { // Corrected here
+            // Redirect to login page after logout
+            window.location.href = "login.html";
         });
+    });
+</script>
 
-        // Logout functionality
-        document.getElementById('logout-button').addEventListener('click', function() {
-            auth.signOut().then(() => {
-                // Redirect to login page after logout
-                window.location.href = "login.html";
-            });
-        });
-    </script>
 
 </body>
 </html>
