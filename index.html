@@ -13,29 +13,48 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            background-image: https://sl.bing.net/iNp2lm2mwEK; /* Add your background image */
+            background-size: cover; /* Cover the entire screen */
+            background-position: center; /* Center the image */
+            color: #fff; /* Change text color for better contrast */
+            text-align: center;
         }
         h1 {
             font-size: 3em;
             color: #1491e3;
+            margin: 0;
         }
         h2 {
             font-size: 2em;
-            color: #555;
+            color: #e0e0e0;
+            margin: 10px 0;
         }
         .login-button {
             padding: 15px 30px;
             font-size: 1.2em;
             color: #fff;
-            background-color: #1491e3;
+            background-color: rgba(20, 145, 227, 0.8); /* Semi-transparent button */
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s; /* Add transform for a smooth effect */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
         }
         .login-button:hover {
             background-color: #0e7abf;
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em; /* Smaller size for smaller screens */
+            }
+            h2 {
+                font-size: 1.5em; /* Smaller size for smaller screens */
+            }
+            .login-button {
+                padding: 12px 25px; /* Adjust button size */
+                font-size: 1em; /* Smaller font for button */
+            }
         }
     </style>
 </head>
