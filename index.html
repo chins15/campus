@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education Redefined</title>
-    <link rel="icon" href="favicon.png" type="image/x-icon"> <!-- Add your favicon link -->
+    <link rel="icon" href="favicon.png" type="image/x-icon">
     <style>
         body {
-            display: flex; /* Use flexbox for layout */
-            flex-direction: column; /* Stack children vertically */
-            height: 100vh; /* Full height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            color: #fff; 
+            color: #fff;
             text-align: center;
-            overflow: hidden; /* Prevent scrolling */
+            overflow: hidden;
+            position: relative; /* Positioning for background */
         }
         .background {
             position: absolute;
@@ -25,14 +28,10 @@
             background-image: url("https://img.freepik.com/premium-photo/wallpaper-banner-featuring-background-made-randomly-shifted-white-cube-boxes-allowing-space_1045886-4022.jpg");
             background-size: cover;
             background-position: center;
-            filter: blur(10px); /* Increased blur effect */
-            z-index: 0; /* Send background to back */
+            filter: blur(10px);
+            z-index: 0;
         }
         .content {
-            display: flex;
-            flex-direction: column; /* Stack items vertically */
-            justify-content: center; /* Center items vertically */
-            flex: 1; /* Take up remaining space */
             z-index: 1; /* Bring content above the blurred background */
         }
         h1 {
@@ -44,7 +43,7 @@
             font-size: 2em;
             color: #FF6F61; /* Coral */
             margin: 10px 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Add shadow */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
         .login-button {
             padding: 10px 20px;
@@ -52,15 +51,14 @@
             color: #fff;
             background-color: #4DB6AC; /* Muted Teal */
             border: none;
-            border-radius: 25px; /* Increased value for more rounded corners */
+            border-radius: 25px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            position: relative; 
-            z-index: 1; /* Bring button above the blurred background */
-            max-width: 200px; /* Set a maximum width */
-            width: 100%; /* Allow it to fill the available width */
-            text-align: center; /* Center the text */
+            max-width: 200px;
+            width: 100%; /* Fill the container width */
+            text-align: center;
+            margin-top: 20px; /* Space above the button */
         }
         .login-button:hover {
             background-color: #00897B; /* Darker teal shade on hover */
@@ -68,9 +66,9 @@
         }
         .footer {
             margin-top: auto; /* Push the footer to the bottom */
-            padding: 10px; /* Add some padding */
-            z-index: 1; /* Ensure footer is above the blurred background */
-            color: #fff; /* Ensure footer text is visible */
+            padding: 10px;
+            z-index: 1;
+            color: #fff;
         }
         @media (max-width: 768px) {
             h1 {
@@ -88,23 +86,13 @@
 </head>
 <body>
 
-    <div class="background"></div> <!-- Background div for blur -->
+    <div class="background"></div>
     <div class="content">
         <h1>Education Redefined</h1>
         <h2>Research Resources</h2>
-  <div class="button-container">
         <button class="login-button" onclick="window.location.href='login.html';">Login</button>
     </div>
-    <div class="footer">© 2024 MGNU Campus. All Rights Reserved.<br></div>
+    <div class="footer">© 2024 MGNU Campus. All Rights Reserved.</div>
 
-    <style>
-        /* Add this style for centering the button */
-        .button-container {
-            display: flex; /* Use flexbox */
-            justify-content: center; /* Center the button horizontally */
-            width: 100%; /* Full width */
-            margin-top: 20px; /* Space above the button */
-        }
-    </style>
 </body>
 </html>
