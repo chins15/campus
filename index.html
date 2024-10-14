@@ -6,18 +6,12 @@
     <title>Education Redefined</title>
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Center content vertically */
-            align-items: center; /* Center content horizontally */
-            height: 100vh;
+        body, html {
+            height: 100%; /* Full height */
             margin: 0;
             font-family: Arial, sans-serif;
-            color: #fff;
-            text-align: center;
-            overflow: hidden;
-            position: relative; /* Positioning for background */
+            color: #fff; 
+            overflow: hidden; /* Prevent scrolling */
         }
         .background {
             position: absolute;
@@ -32,8 +26,14 @@
             z-index: 0;
         }
         .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            height: 100%; /* Full height */
+            position: relative; /* Relative for z-index */
             z-index: 1; /* Bring content above the blurred background */
-            text-align: center; /* Center text in the content */
+            text-align: center; /* Center text */
         }
         h1 {
             font-size: 3em;
@@ -52,24 +52,25 @@
             color: #fff;
             background-color: #4DB6AC; /* Muted Teal */
             border: none;
-            border-radius: 25px;
+            border-radius: 25px; 
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 200px;
-            width: 100%; /* Fill the container width */
-            text-align: center;
+            max-width: 200px; /* Set a maximum width */
+            width: 100%; /* Allow it to fill the available width */
             margin-top: 20px; /* Space above the button */
         }
         .login-button:hover {
-            background-color: #00897B; /* Darker teal shade on hover */
-            transform: translateY(-2px); /* Lift effect on hover */
+            background-color: #00897B; 
+            transform: translateY(-2px); 
         }
         .footer {
-            margin-top: auto; /* Push the footer to the bottom */
-            padding: 10px;
-            z-index: 1;
-            color: #fff;
+            position: absolute; /* Fixed footer */
+            bottom: 20px; /* Distance from the bottom */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Adjust for center */
+            z-index: 1; 
+            color: #fff; 
         }
         @media (max-width: 768px) {
             h1 {
