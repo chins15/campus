@@ -9,9 +9,7 @@
         body {
             display: flex; /* Use flexbox for layout */
             flex-direction: column; /* Stack children vertically */
-            align-items: center; /* Center horizontally */
-            justify-content: center; /* Center vertically */
-            height: 100vh;
+            height: 100vh; /* Full height */
             margin: 0;
             font-family: Arial, sans-serif;
             color: #fff; 
@@ -30,19 +28,22 @@
             filter: blur(10px); /* Increased blur effect */
             z-index: 0; /* Send background to back */
         }
+        .content {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            justify-content: center; /* Center items vertically */
+            flex: 1; /* Take up remaining space */
+            z-index: 1; /* Bring content above the blurred background */
+        }
         h1 {
             font-size: 3em;
             color: #003366; /* Deep Navy */
             margin: 0;
-            position: relative;
-            z-index: 1; /* Bring text above the blurred background */
         }
         h2 {
             font-size: 2em;
             color: #FF6F61; /* Coral */
             margin: 10px 0;
-            position: relative;
-            z-index: 1; /* Bring text above the blurred background */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Add shadow */
         }
         .login-button {
@@ -55,8 +56,6 @@
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-            position: relative; 
-            z-index: 1; /* Bring button above the blurred background */
         }
         .login-button:hover {
             background-color: #00897B; /* Darker teal shade on hover */
@@ -85,9 +84,11 @@
 <body>
 
     <div class="background"></div> <!-- Background div for blur -->
-    <h1>Education Redefined</h1>
-    <h2>Research Resources</h2>
-    <button class="login-button" onclick="window.location.href='login.html';">Login</button>
+    <div class="content">
+        <h1>Education Redefined</h1>
+        <h2>Research Resources</h2>
+        <button class="login-button" onclick="window.location.href='login.html';">Login</button>
+    </div>
     <div class="footer">© 2024 MGNU Campus. All Rights Reserved.<br></div>
 
 </body>
