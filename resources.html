@@ -14,7 +14,7 @@
             line-height: 1.6;
             display: flex; /* Use flexbox for layout */
             flex-direction: column; /* Stack elements vertically */
-            align-items: center; /* Center elements */
+            align-items: center; /* Center elements horizontally */
         }
         h2 {
             color: rgb(149, 55, 52);
@@ -24,6 +24,7 @@
             margin-bottom: 20px;
             width: 90%; /* Make entry width responsive */
             max-width: 800px; /* Limit max width for larger screens */
+            text-align: left; /* Align text to the left */
         }
         .footer {
             margin-top: 40px;
@@ -39,7 +40,7 @@
             border-radius: 25px;
             cursor: pointer;
             margin-top: 20px;
-            align-self: flex-end; /* Align button to the right */
+            text-align: center; /* Center the button text */
         }
         .logout-button:hover {
             background-color: #e03e3e;
@@ -74,14 +75,14 @@
         </span><br>
         <span style="font-size: 12px;">(Includes: Time, Forbes, Fast Company, Fortune, Bloomberg Businessweek, McKinsey Quarterly, California Management Review, Harvard Business Review and more)</span>
     </p>
-    <p>
+    <p class="entry">
         <span style="font-size: 21pt;">📚
             <a href="https://search.proquest.com/ebookcentral/?accountid=35207" target="_blank" rel="noopener">
                 <span style="font-size: 21px;">eBook Central (ProQuest)</span>
             </a>
         </span>
     </p>
-    <p>
+    <p class="entry">
         <span style="font-size: 21pt;">📚
             <span style="font-size: 21px;">
                 <a href="https://search.ebscohost.com/login.aspx?authtype=ip,url,uid&amp;custid=ns000304&amp;groupid=main&amp;profile=ehost&amp;defaultdb=e000xww" target="_blank" rel="noopener">
