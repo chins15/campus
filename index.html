@@ -6,7 +6,6 @@
     <title>Education Redefined</title>
     <style>
         body {
-            position: relative; /* Make body position relative for pseudo-element */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -14,62 +13,54 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            color: #fff; /* Change text color for better contrast */
-            text-align: center;
-            overflow: hidden; /* Prevent overflow if content exceeds */
-        }
-
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
             background-image: url("https://img.freepik.com/premium-photo/wallpaper-banner-featuring-background-made-randomly-shifted-white-cube-boxes-allowing-space_1045886-4022.jpg");
-            background-size: cover; /* Cover the entire screen */
-            background-position: center; /* Center the image */
-            filter: blur(8px); /* Blur effect */
-            z-index: -1; /* Send it behind the content */
+            background-size: cover;
+            background-position: center;
+            color: #fff; 
+            text-align: center;
+            filter: blur(5px); /* Blur the background */
         }
-
         h1 {
             font-size: 3em;
-            color: #1491e3;
+            color: #00bcd4; /* Bright Cyan */
             margin: 0;
+            position: relative;
+            z-index: 1; /* Bring text above the blurred background */
         }
         h2 {
             font-size: 2em;
-            color: #A0A0A0;
+            color: #ffd600; /* Gold */
             margin: 10px 0;
+            position: relative;
+            z-index: 1; /* Bring text above the blurred background */
         }
         .login-button {
             padding: 15px 30px;
             font-size: 1.2em;
             color: #fff;
-            background-color: rgba(20, 145, 227, 0.8); /* Semi-transparent button */
+            background-color: #ff5722; /* Bright Orange */
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s; /* Add transform for a smooth effect */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-            position: relative; /* Make sure button is above the background */
-            z-index: 1; /* Higher z-index to stay above the blurred background */
+            transition: background-color 0.3s, transform 0.2s; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            position: relative; 
+            z-index: 1; /* Bring button above the blurred background */
         }
         .login-button:hover {
-            background-color: #0e7abf;
+            background-color: #e64a19; /* Darker shade on hover */
             transform: translateY(-2px); /* Lift effect on hover */
         }
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5em; /* Smaller size for smaller screens */
+                font-size: 2.5em;
             }
             h2 {
-                font-size: 1.5em; /* Smaller size for smaller screens */
+                font-size: 1.5em;
             }
             .login-button {
-                padding: 12px 25px; /* Adjust button size */
-                font-size: 1em; /* Smaller font for button */
+                padding: 12px 25px;
+                font-size: 1em;
             }
         }
     </style>
