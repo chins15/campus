@@ -47,7 +47,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Add shadow */
         }
         .login-button {
-            padding: 15px 30px;
+            padding: 10px 20px;
             font-size: 1.2em;
             color: #fff;
             background-color: #4DB6AC; /* Muted Teal */
@@ -55,7 +55,12 @@
             border-radius: 25px; /* Increased value for more rounded corners */
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative; 
+            z-index: 1; /* Bring button above the blurred background */
+            max-width: 200px; /* Set a maximum width */
+            width: 100%; /* Allow it to fill the available width */
+            text-align: center; /* Center the text */
         }
         .login-button:hover {
             background-color: #00897B; /* Darker teal shade on hover */
