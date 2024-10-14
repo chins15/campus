@@ -4,22 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education Redefined</title>
-    <link rel="icon" href="favicon.png" type="image/x-icon"> <!-- Add this line -->
+    <link rel="icon" href="favicon.png" type="image/x-icon"> <!-- Add your favicon link -->
     <style>
         body {
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
+            color: #fff; 
+            text-align: center;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background-image: url("https://img.freepik.com/premium-photo/wallpaper-banner-featuring-background-made-randomly-shifted-white-cube-boxes-allowing-space_1045886-4022.jpg");
             background-size: cover;
             background-position: center;
-            color: #fff; 
-            text-align: center;
             filter: blur(5px); /* Blur the background */
+            z-index: 0; /* Send background to back */
         }
         h1 {
             font-size: 3em;
@@ -68,6 +76,7 @@
 </head>
 <body>
 
+    <div class="background"></div> <!-- Background div for blur -->
     <h1>Education Redefined</h1>
     <h2>Research Resources</h2>
     <button class="login-button" onclick="window.location.href='login.html';">Login</button>
