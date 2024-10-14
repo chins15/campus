@@ -6,7 +6,7 @@
     <title>Login</title>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"></script>
-    <link rel="icon" href="favicon.png" type="image/x-icon"> <!-- Add your favicon link -->
+    <link rel="icon" href="favicon.png" type="image/x-icon">
     <style>
         body {
             display: flex;
@@ -16,51 +16,61 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4; /* You can change this to a different color or image */
+            background-color: #f4f4f4;
+        }
+        h2 {
+            margin-bottom: 20px; /* Add space below the heading */
         }
         form {
             display: flex;
             flex-direction: column;
-            width: 90%; /* Use percentage for responsiveness */
-            max-width: 400px; /* Limit max width for larger screens */
+            width: 90%;
+            max-width: 400px;
         }
         input {
             margin-bottom: 10px;
             padding: 10px;
             font-size: 16px;
-            border: 1px solid #ccc; /* Add border for better visibility */
-            border-radius: 5px; /* Slightly rounded corners for inputs */
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         .login-button {
             padding: 10px;
-            background-color: #4DB6AC; /* Match the index page button color */
+            background-color: #4DB6AC;
             color: #fff;
             border: none;
             border-radius: 25px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%; /* Full width */
+            max-width: 200px; /* Limit width */
+            margin: 0 auto; /* Center the button */
         }
         .login-button:hover {
-            background-color: #00897B; /* Darker teal shade on hover */
-            transform: translateY(-2px); /* Lift effect on hover */
+            background-color: #00897B;
+            transform: translateY(-2px);
         }
         .error {
             color: red;
             margin-top: 10px;
+            text-align: center; /* Center the error message */
         }
-
+        .footer {
+            margin-top: 20px; /* Space above footer */
+            text-align: center; /* Center footer text */
+        }
         /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
             h2 {
-                font-size: 1.8em; /* Adjust h2 size for smaller screens */
+                font-size: 1.8em;
             }
             .login-button {
-                padding: 8px; /* Slightly smaller padding */
-                font-size: 14px; /* Smaller font size for button */
+                padding: 8px;
+                font-size: 14px;
             }
             input {
-                font-size: 14px; /* Smaller font size for inputs */
+                font-size: 14px;
             }
         }
     </style>
@@ -74,50 +84,42 @@
         <button type="submit" class="login-button">Login</button>
         <div class="error" id="error-message"></div>
     </form>
-<div class="footer">© 2024 MGNU Campus. All Rights Reserved.<br></div>
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+    <div class="footer">© 2024 MGNU Campus. All Rights Reserved.<br></div>
 
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyDx6aMhun-5RS0F-rdUpMox-8GLXHIGXys",
-        authDomain: "mgnucampus.firebaseapp.com",
-        projectId: "mgnucampus",
-        storageBucket: "mgnucampus.appspot.com",
-        messagingSenderId: "923094053035",
-        appId: "1:923094053035:web:58fbcee7fcd9ecb7cdc7ee",
-        measurementId: "G-GKMS3NK98V"
-    };
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth(); 
+        const firebaseConfig = {
+            apiKey: "AIzaSyDx6aMhun-5RS0F-rdUpMox-8GLXHIGXys",
+            authDomain: "mgnucampus.firebaseapp.com",
+            projectId: "mgnucampus",
+            storageBucket: "mgnucampus.appspot.com",
+            messagingSenderId: "923094053035",
+            appId: "1:923094053035:web:58fbcee7fcd9ecb7cdc7ee",
+            measurementId: "G-GKMS3NK98V"
+        };
 
-    // Handle login form submission
-    document.getElementById('login-form').addEventListener('submit', function(event) {
-        event.preventDefault();
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(); 
 
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                window.alert("Login successful!");
-                window.location.href = "resources.html"; // Redirect
-            })
-            .catch((error) => {
-                // Handle Errors here.
-                const errorMessage = error.message;
-                console.error("Error during login:", errorMessage); // Log to console for debugging
-                document.getElementById('error-message').innerText = errorMessage;
-            });
-    });
-</script>
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    window.alert("Login successful!");
+                    window.location.href = "resources.html";
+                })
+                .catch((error) => {
+                    const errorMessage = error.message;
+                    document.getElementById('error-message').innerText = errorMessage;
+                });
+        });
+    </script>
 
 </body>
 </html>
