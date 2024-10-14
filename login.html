@@ -16,34 +16,52 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f4f4f4; /* You can change this to a different color or image */
         }
         form {
             display: flex;
             flex-direction: column;
-            width: 300px;
+            width: 90%; /* Use percentage for responsiveness */
+            max-width: 400px; /* Limit max width for larger screens */
         }
         input {
             margin-bottom: 10px;
             padding: 10px;
             font-size: 16px;
+            border: 1px solid #ccc; /* Add border for better visibility */
+            border-radius: 5px; /* Slightly rounded corners for inputs */
         }
         .login-button {
             padding: 10px;
-            background-color: #1491e3;
+            background-color: #4DB6AC; /* Match the index page button color */
             color: #fff;
             border: none;
             border-radius: 25px;
             cursor: pointer;
             font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
         }
         .login-button:hover {
-            background-color: #0e7abf;
+            background-color: #00897B; /* Darker teal shade on hover */
             transform: translateY(-2px); /* Lift effect on hover */
         }
         .error {
             color: red;
             margin-top: 10px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.8em; /* Adjust h2 size for smaller screens */
+            }
+            .login-button {
+                padding: 8px; /* Slightly smaller padding */
+                font-size: 14px; /* Smaller font size for button */
+            }
+            input {
+                font-size: 14px; /* Smaller font size for inputs */
+            }
         }
     </style>
 </head>
@@ -58,54 +76,48 @@
     </form>
 
 <script type="module">
-  // Import the functions you need from the SDKs you need
-     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-     import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"
-     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyDx6aMhun-5RS0F-rdUpMox-8GLXHIGXys",
-    authDomain: "mgnucampus.firebaseapp.com",
-    projectId: "mgnucampus",
-    storageBucket: "mgnucampus.appspot.com",
-    messagingSenderId: "923094053035",
-    appId: "1:923094053035:web:58fbcee7fcd9ecb7cdc7ee",
-    measurementId: "G-GKMS3NK98V"
-  };
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDx6aMhun-5RS0F-rdUpMox-8GLXHIGXys",
+        authDomain: "mgnucampus.firebaseapp.com",
+        projectId: "mgnucampus",
+        storageBucket: "mgnucampus.appspot.com",
+        messagingSenderId: "923094053035",
+        appId: "1:923094053035:web:58fbcee7fcd9ecb7cdc7ee",
+        measurementId: "G-GKMS3NK98V"
+    };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const auth = getAuth(); 
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(); 
 
-        // Handle login form submission
-       // Handle login form submission
+    // Handle login form submission
     document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+        event.preventDefault();
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-    signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            window.alert("Login successful!");
-            window.location.href = "resources.html"; // Redirect
-        })
-        .catch((error) => {
-             // Handle Errors here.
-            const errorMessage = error.message;
-            console.error("Error during login:", errorMessage); // Log to console for debugging
-            document.getElementById('error-message').innerText = errorMessage;
-        });
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                window.alert("Login successful!");
+                window.location.href = "resources.html"; // Redirect
+            })
+            .catch((error) => {
+                // Handle Errors here.
+                const errorMessage = error.message;
+                console.error("Error during login:", errorMessage); // Log to console for debugging
+                document.getElementById('error-message').innerText = errorMessage;
+            });
     });
-
-    </script>
+</script>
 
 </body>
 </html>
-
