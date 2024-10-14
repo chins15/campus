@@ -6,6 +6,7 @@
     <title>Education Redefined</title>
     <style>
         body {
+            position: relative; /* Make body position relative for pseudo-element */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -13,12 +14,25 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-image: url("https://img.freepik.com/premium-photo/wallpaper-banner-featuring-background-made-randomly-shifted-white-cube-boxes-allowing-space_1045886-4022.jpg"); /* Add your background image */
-            background-size: cover; /* Cover the entire screen */
-            background-position: center; /* Center the image */
             color: #fff; /* Change text color for better contrast */
             text-align: center;
+            overflow: hidden; /* Prevent overflow if content exceeds */
         }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("https://img.freepik.com/premium-photo/wallpaper-banner-featuring-background-made-randomly-shifted-white-cube-boxes-allowing-space_1045886-4022.jpg");
+            background-size: cover; /* Cover the entire screen */
+            background-position: center; /* Center the image */
+            filter: blur(8px); /* Blur effect */
+            z-index: -1; /* Send it behind the content */
+        }
+
         h1 {
             font-size: 3em;
             color: #1491e3;
@@ -39,6 +53,8 @@
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s; /* Add transform for a smooth effect */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+            position: relative; /* Make sure button is above the background */
+            z-index: 1; /* Higher z-index to stay above the blurred background */
         }
         .login-button:hover {
             background-color: #0e7abf;
@@ -60,8 +76,8 @@
 </head>
 <body>
 
-    <h1>Education Redefined</h1><p></p>
-    <h2>Research Resources</h2><p></p>
+    <h1>Education Redefined</h1>
+    <h2>Research Resources</h2>
     <button class="login-button" onclick="window.location.href='login.html';">Login</button>
 
 </body>
