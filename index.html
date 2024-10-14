@@ -7,9 +7,10 @@
     <link rel="icon" href="favicon.png" type="image/x-icon"> <!-- Add your favicon link -->
     <style>
         body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Stack children vertically */
+            align-items: center; /* Center horizontally */
+            justify-content: center; /* Center vertically */
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
@@ -77,8 +78,8 @@
 <body>
 
     <div class="background"></div> <!-- Background div for blur -->
-    <h1>Education Redefined</h1><p></p>
-    <h2>Research Resources</h2><p></p>
+    <h1>Education Redefined</h1>
+    <h2>Research Resources</h2>
     <button class="login-button" onclick="window.location.href='login.html';">Login</button>
 
 </body>
